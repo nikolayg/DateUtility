@@ -12,7 +12,10 @@ which computes the difference in days between two dates.
 sdk install java 9.0.1
 ```
 
-It also use [Gradle](https://gradle.org/) 
+If Java 9 is not yet available for your Platform via SDK Man,
+then you need to download and install from Oracle's website.
+
+**Date Utility** uses [Gradle](https://gradle.org/) 
 for build and test automation. You can use the
 provided Gradle wrapper. If you wish to install it globally:
 
