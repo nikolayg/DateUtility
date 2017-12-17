@@ -22,6 +22,18 @@ public class Date {
         this.year = year;
     }
 
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     static boolean isLeap(final int year) {
         return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
     }
