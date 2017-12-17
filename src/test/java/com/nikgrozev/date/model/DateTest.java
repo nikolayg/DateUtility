@@ -6,6 +6,16 @@ import static org.junit.Assert.*;
 
 public class DateTest {
 
+    @Test
+    public void testDaysSinceAD() throws InvalidDateException {
+        assertEquals(367, new Date(1, 1, 1).daysSinceAD());
+        assertEquals(368, new Date(2, 1, 1).daysSinceAD());
+
+        assertEquals(426, new Date(1, 3, 1).daysSinceAD());
+        assertEquals(4809, new Date(1, 3, 13).daysSinceAD());
+        assertEquals(370051, new Date(1, 3, 1013).daysSinceAD());
+    }
+
     @Test(expected = InvalidDateException.class)
     public void testCreateDateWithInvalidLeapDate() throws InvalidDateException {
         new Date(29, 2, 1999);
@@ -29,7 +39,7 @@ public class DateTest {
         assertTrue(Date.isLeap(2000));
         assertTrue(Date.isLeap(404));
         assertTrue(Date.isLeap(2400));
-        
+
         assertFalse(Date.isLeap(2));
         assertFalse(Date.isLeap(3));
         assertFalse(Date.isLeap(100));
@@ -40,7 +50,7 @@ public class DateTest {
     }
 
     @Test
-    public void tesMaxDaysInMonth(){
+    public void tesMaxDaysInMonth() {
         assertEquals(31, Date.maxDaysInMonth(1, 2000));
         assertEquals(31, Date.maxDaysInMonth(3, 2001));
         assertEquals(31, Date.maxDaysInMonth(5, 2002));
@@ -56,7 +66,7 @@ public class DateTest {
 
         assertEquals(28, Date.maxDaysInMonth(2, 2001));
         assertEquals(28, Date.maxDaysInMonth(2, 1900));
-        assertEquals(29, Date.maxDaysInMonth(2, 1996));        
+        assertEquals(29, Date.maxDaysInMonth(2, 1996));
         assertEquals(29, Date.maxDaysInMonth(2, 2000));
     }
 }
