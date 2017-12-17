@@ -14,7 +14,8 @@ public class Date {
     private final int month;
     private final int year;
 
-    public Date(final int day, final int month, final int year) {
+    public Date(final int day, final int month, final int year) throws InvalidDateException {
+        validate(day, month, year);
         this.day = day;
         this.month = month;
         this.year = year;
@@ -35,6 +36,13 @@ public class Date {
             return isLeap(year)? 29 : 28;
         } else {
             return 30;
+        }
+    }
+
+    static void validate(final int day, final int month, final int year) throws InvalidDateException {
+        // TODO Add more specific error messages
+        if(year <= 0 || month <= 0 || month > 12 || day <= 0 || day > maxDaysInMonth(month, year)) {
+            throw new InvalidDateException(String.format("Invalid date %d-%d-%d", day, month, year));
         }
     }
 }

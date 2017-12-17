@@ -6,6 +6,16 @@ import static org.junit.Assert.*;
 
 public class DateTest {
 
+    @Test(expected = InvalidDateException.class)
+    public void testCreateDateWithInvalidLeapDate() throws InvalidDateException {
+        new Date(29, 2, 1999);
+    }
+
+    @Test(expected = InvalidDateException.class)
+    public void testCreateDateWithInvalidDay() throws InvalidDateException {
+        new Date(31, 4, 1999);
+    }
+
     @Test
     public void testIsLeap() {
         assertTrue(Date.isLeap(4));
