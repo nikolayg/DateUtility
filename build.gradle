@@ -29,3 +29,15 @@ jar {
                    'Class-Path': configurations.runtime.files.collect {"$it.name"}.join(' ')
     }
 }
+
+// Summary of the tests
+test {
+    afterSuite { desc, result ->
+    if (!desc.parent)
+        println("${result.resultType} " +
+            "(${result.testCount} tests, " +
+            "${result.successfulTestCount} successes, " +
+            "${result.failedTestCount} failures, " +
+            "${result.skippedTestCount} skipped)")
+    }
+}
