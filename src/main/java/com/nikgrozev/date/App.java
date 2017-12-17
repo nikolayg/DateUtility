@@ -8,10 +8,15 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
+        Interpreter interpreter = new Interpreter();
+
+        // Read from the std line by line and interpret
         try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Keep inputing ... and then press Ctrl+C");
+            System.out.println("Input dates ... ");
+
             while (input.hasNext()) {
-                System.out.println(input.nextLine());
+                System.out.println(interpreter.interpret(input.nextLine().trim()));
+                System.out.println("\nInput new dates ... ");
             }
 
         } finally {
