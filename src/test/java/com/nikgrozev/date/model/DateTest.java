@@ -28,4 +28,25 @@ public class DateTest {
         assertFalse(Date.isLeap(1900));
         assertFalse(Date.isLeap(2100));
     }
+
+    @Test
+    public void tesMaxDaysInMonth(){
+        assertEquals(31, Date.maxDaysInMonth(1, 2000));
+        assertEquals(31, Date.maxDaysInMonth(3, 2001));
+        assertEquals(31, Date.maxDaysInMonth(5, 2002));
+        assertEquals(31, Date.maxDaysInMonth(7, 2003));
+        assertEquals(31, Date.maxDaysInMonth(8, 2004));
+        assertEquals(31, Date.maxDaysInMonth(10, 2005));
+        assertEquals(31, Date.maxDaysInMonth(12, 2006));
+
+        assertEquals(30, Date.maxDaysInMonth(4, 2000));
+        assertEquals(30, Date.maxDaysInMonth(6, 2001));
+        assertEquals(30, Date.maxDaysInMonth(9, 2002));
+        assertEquals(30, Date.maxDaysInMonth(11, 2003));
+
+        assertEquals(28, Date.maxDaysInMonth(2, 2001));
+        assertEquals(28, Date.maxDaysInMonth(2, 1900));
+        assertEquals(29, Date.maxDaysInMonth(2, 1996));        
+        assertEquals(29, Date.maxDaysInMonth(2, 2000));
+    }
 }
