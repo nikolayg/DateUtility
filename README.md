@@ -9,7 +9,11 @@ which computes the difference in days between two dates.
 [SDK Man](http://sdkman.io/) to install it:
 
 ```bash
+# On mosts systems this will work:
 sdk install java 9.0.1
+
+# On some systems you'll need the following:
+sdk install java 9.0.1-oracle
 ```
 
 If Java 9 is not yet available for your Platform via SDK Man,
